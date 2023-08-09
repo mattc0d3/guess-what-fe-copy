@@ -16,9 +16,9 @@ import { UsersContext } from '@/contexts/User';
 import { SocketContext } from '@/contexts/Socket';
 import { ThisUserContext } from '@/contexts/ThisUser';
 
-const { io } = require('socket.io-client');
+// const { io } = require('socket.io-client');
 
-const socket = io('https://guess-what-copy.onrender.com/');
+// const socket = io('https://guess-what-copy.onrender.com/');
 
 export default function TwoPlayerDisplay() {
   const [isGameFinished, setIsGameFinished] = useState(false);
