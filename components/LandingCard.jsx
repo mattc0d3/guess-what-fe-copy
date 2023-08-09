@@ -58,9 +58,12 @@ export const LandingCard = () => {
               id="username"
               value={thisUser.name}
               onChange={(e) => {
+                console.log(e.target.value, "<<<<<< input value")
                 let obj = { ...thisUser };
                 obj.name = e.target.value;
+                console.log(obj, "<<<<<< obj to be assigned")
                 setThisUser(obj);
+                console.log(thisUser, "<<<< thisUser after context set")
                 const currentUserStats = { ...statsObject };
                 currentUserStats.username = e.target.value;
                 setStatsObject(currentUserStats);

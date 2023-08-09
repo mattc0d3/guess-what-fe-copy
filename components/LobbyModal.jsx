@@ -32,7 +32,7 @@ export default function LobbyModal({
     console.log(thisUser.name, "<<<<< thisUser.name")
     if (thisUser.name) {
       console.log(thisUser.name, "<<<<< thisUser.name in if condition")
-    socket.emit('find', { name: thisUser.name, aliens: users.allAliens });
+    socket.emit('find', { name: thisUser.name, aliens: users.allAliens, test: "test" });
     let tempThisUser = { ...thisUser };
     tempThisUser.name = '';
     setThisUser(tempThisUser);
@@ -52,6 +52,7 @@ export default function LobbyModal({
     });
   }
   }, [thisUser, users]);
+  
   useEffect(() => {
     if (users.p1.p1name && users.p2.p2name) {
       setWaitingPlayerTwo(false);
