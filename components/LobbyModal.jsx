@@ -31,6 +31,12 @@ export default function LobbyModal({
   console.log(thisUser, "<<<<< thisUser in lobbymodal")
 
   useEffect(() => {
+    console.log("in local storage set")
+    localStorage.setItem('thisUser', JSON.stringify(thisUser))
+  }, [thisUser]
+  )
+
+  useEffect(() => {
     console.log(thisUser.name, "<<<<< thisUser.name")
     if (thisUser.name) {
       console.log(thisUser.name, "<<<<< thisUser.name in if condition")

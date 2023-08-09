@@ -20,6 +20,7 @@ import { ThisUserContext } from '@/contexts/ThisUser';
 
 // const socket = io('https://guess-what-copy.onrender.com/');
 
+
 export default function TwoPlayerDisplay() {
   const [isGameFinished, setIsGameFinished] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,16 @@ export default function TwoPlayerDisplay() {
   const { users, setUsers } = useContext(UsersContext);
   const { yourSocket, setYourSocket } = useContext(SocketContext);
   const { thisUser, setThisUser } = useContext(ThisUserContext);
+
+  useEffect(() => {
+    console.log("in local storage get")
+    const storageUser = JSON.parse(localStorage.getItem('thisUser'));
+    if (storageUser) {
+      console.log(storageUser, "<<<<<<< storage user")
+     setThisUser(storageUser);
+    }
+  }, []);
+
 
   console.log(chosenAlien, '<--- chosen alien');
   console.log(thisUser, "<<<<<< this user in two player display")
