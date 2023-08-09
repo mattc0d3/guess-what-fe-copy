@@ -34,33 +34,33 @@ export default function TwoPlayerDisplay() {
   const { thisUser, setThisUser } = useContext(ThisUserContext);
   const { statsObject, setStatsObject } = useContext(UserStatsContext)
 
-  useEffect(() => {
-    console.log(isGameFinished, "<<<<< isGameFinished")
-    if (!isGameFinished) {
-      getAliens().then((res) => {
-        socket.emit('reset', res)
-        socket.on("reset", (e) => {
-          console.log(e, "<<<<<<< e")
-          let obj = { ...users };
-          obj.p1.p1alien = e.newBoard.p1alien;
-          obj.p2.p2alien = e.newBoard.p2alien;
-          obj.allAliens = e.newBoard.alienArray;
-          console.log(obj, "<<<<< obj")
-          setUsers(obj);
-        })
-        setAlienObjects(res);
-        setIsLoading(false);
-      });
-    }
-  }, [isGameFinished]);
+  // useEffect(() => {
+  //   console.log(isGameFinished, "<<<<< isGameFinished")
+  //   if (!isGameFinished) {
+  //     getAliens().then((res) => {
+  //       socket.emit('reset', res)
+  //       socket.on("reset", (e) => {
+  //         console.log(e, "<<<<<<< e")
+  //         let obj = { ...users };
+  //         obj.p1.p1alien = e.newBoard.p1alien;
+  //         obj.p2.p2alien = e.newBoard.p2alien;
+  //         obj.allAliens = e.newBoard.alienArray;
+  //         console.log(obj, "<<<<< obj")
+  //         setUsers(obj);
+  //       })
+  //       setAlienObjects(res);
+  //       setIsLoading(false);
+  //     });
+  //   }
+  // }, [isGameFinished]);
 
-  useEffect(() => {
-    if (yourSocket === users.p1.p1socketId) {
-      setChosenAlien(users.p2.p2alien);
-    } else {
-      setChosenAlien(users.p1.p1alien);
-    }
-  }, [users]);
+  // useEffect(() => {
+  //   if (yourSocket === users.p1.p1socketId) {
+  //     setChosenAlien(users.p2.p2alien);
+  //   } else {
+  //     setChosenAlien(users.p1.p1alien);
+  //   }
+  // }, [users]);
 
   useEffect(() => {
     console.log("in local storage get")
