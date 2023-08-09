@@ -1,7 +1,7 @@
 "use client";
 import { UserStatsContext } from "@/contexts/UserStats";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { OpponentContext } from '@/contexts/OpponentObject';
 import { ThisUserContext } from '@/contexts/ThisUser';
 
@@ -21,7 +21,6 @@ export default function EndGameModal({
   const router = useRouter();
 
   function handlePlayAgain(e) {
-
     e.preventDefault();
     setIsLoading(true)
     setIsGameFinished(false);

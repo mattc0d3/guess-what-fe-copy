@@ -17,9 +17,9 @@ import { SocketContext } from '@/contexts/Socket';
 import { ThisUserContext } from '@/contexts/ThisUser';
 import { UserStatsContext } from '@/contexts/UserStats';
 
-// const { io } = require('socket.io-client');
+const { io } = require('socket.io-client');
 
-// const socket = io('https://guess-what-copy.onrender.com/');
+const socket = io('https://guess-what-copy.onrender.com/');
 
 
 export default function TwoPlayerDisplay() {
@@ -35,6 +35,40 @@ export default function TwoPlayerDisplay() {
   const { statsObject, setStatsObject } = useContext(UserStatsContext)
 
   useEffect(() => {
+    if (!isGameFinished) {
+
+      socket.emit('reset')
+    }
+  }, [isGameFinished])
+
+  useEffect(() => {
+    if (!isGameFinished) {
+      getAliens().then((res) => {
+        socket.emit('reset', res)
+        socket.on("reset", (e) => {
+          console.log(e, "<<<<<<< e")
+          let obj = { ...users };
+          obj.p1.p1alien = e.newBoard.p1alien;
+          obj.p2.p2alien = e.newBoard.p2alien;
+          obj.allAliens = e.newBoard.alienArray;
+          console.log(obj, "<<<<< obj")
+          setUsers(obj);
+        })
+        setAlienObjects(res);
+        setIsLoading(false);
+      });
+    }
+  }, [isGameFinished]);
+
+  useEffect(() => {
+    if (yourSocket === users.p1.p1socketId) {
+      setChosenAlien(users.p2.p2alien);
+    } else {
+      setChosenAlien(users.p1.p1alien);
+    }
+  }, [users]);
+
+  useEffect(() => {
     console.log("in local storage get")
     const storageUser = JSON.parse(localStorage.getItem('thisUser'));
     const storageUsers = JSON.parse(localStorage.getItem('users'));
@@ -45,7 +79,7 @@ export default function TwoPlayerDisplay() {
     setStatsObject(storageStats)
     if (storageUser) {
       console.log(storageUser, "<<<<<<< storage user")
-     setThisUser(storageUser);
+      setThisUser(storageUser);
     }
   }, []);
 
@@ -87,10 +121,10 @@ export default function TwoPlayerDisplay() {
         />
         <OpponentCard />
         <UsersCard isLoading={isLoading} />
-        <UserStats alienObjects={alienObjects} isGameFinished={isGameFinished} isLoading={isLoading}/>
+        <UserStats alienObjects={alienObjects} isGameFinished={isGameFinished} isLoading={isLoading} />
         <ScoreTwoPlayer />
       </div>
-      <Footer className='footer'/>
+      <Footer className='footer' />
     </main>
   );
 }

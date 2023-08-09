@@ -88,18 +88,6 @@ export const LandingCard = () => {
               }}
               required
             />
-            <label htmlFor="room-input"> </label>
-            <input className='name-input'
-              type="text"
-              id="room-input"
-              value={thisUser.room}
-              onChange={(e) => {
-                let obj = { ...thisUser };
-                obj.room = e.target.value;
-                setThisUser(obj);
-              }}
-              required
-            />
           </div>
 
         </div>
