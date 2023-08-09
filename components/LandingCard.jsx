@@ -32,6 +32,11 @@ export const LandingCard = () => {
   }, [users])
 
   useEffect(() => {
+    console.log(statsObject, "<<<<<< setting stats object")
+    localStorage.setItem('statsObject', JSON.stringify(statsObject))
+  }, [statsObject])
+
+  useEffect(() => {
     getAliens().then((res) => {
       console.log(res, "<<<<< api res")
       let obj = { ...users };
