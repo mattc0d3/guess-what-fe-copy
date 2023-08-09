@@ -21,9 +21,14 @@ export const LandingCard = () => {
   useEffect(() => {
     console.log(users, "<<<<< users, setting")
     localStorage.setItem('thisUser', JSON.stringify(thisUser))
-    localStorage.setItem('users', JSON.stringify(users))
+    // localStorage.setItem('users', JSON.stringify(users))
   }, [thisUser, users, yourSocket]
   )
+
+  useEffect(() => {
+    console.log(users, "<<<<< users, setting")
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [users])
 
   useEffect(() => {
     getAliens().then((res) => {

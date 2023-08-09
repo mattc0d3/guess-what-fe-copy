@@ -36,7 +36,7 @@ export default function TwoPlayerDisplay() {
     console.log("in local storage get")
     const storageUser = JSON.parse(localStorage.getItem('thisUser'));
     const storageUsers = JSON.parse(localStorage.getItem('users'));
-    console.log("<<<<<<< storage users")
+    console.log(users, "<<<<<<< storage users")
     setUsers(storageUsers)
     if (storageUser) {
       console.log(storageUser, "<<<<<<< storage user")
