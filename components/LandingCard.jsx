@@ -19,8 +19,8 @@ export const LandingCard = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("in local storage set")
     localStorage.setItem('thisUser', JSON.stringify(thisUser))
+    localStorage.setItem('users', JSON.stringify(users))
   }, [thisUser, users, yourSocket]
   )
 
@@ -64,12 +64,9 @@ export const LandingCard = () => {
               id="username"
               value={thisUser.name}
               onChange={(e) => {
-                console.log(e.target.value, "<<<<<< input value")
                 let obj = { ...thisUser };
                 obj.name = e.target.value;
-                console.log(obj, "<<<<<< obj to be assigned")
                 setThisUser(obj);
-                console.log(thisUser, "<<<< thisUser after context set")
                 const currentUserStats = { ...statsObject };
                 currentUserStats.username = e.target.value;
                 setStatsObject(currentUserStats);
