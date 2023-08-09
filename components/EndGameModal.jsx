@@ -21,6 +21,7 @@ export default function EndGameModal({
   const router = useRouter();
 
   function handlePlayAgain(e) {
+    // console.log()
     e.preventDefault();
     setIsLoading(true)
     setIsGameFinished(false);

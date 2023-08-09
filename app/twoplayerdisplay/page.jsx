@@ -35,6 +35,7 @@ export default function TwoPlayerDisplay() {
   const { statsObject, setStatsObject } = useContext(UserStatsContext)
 
   useEffect(() => {
+    console.log(isGameFinished, "<<<<< isGameFinished")
     if (!isGameFinished) {
       getAliens().then((res) => {
         socket.emit('reset', res)
