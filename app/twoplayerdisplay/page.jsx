@@ -15,7 +15,7 @@ import ScoreTwoPlayer from '@/components/ScoreTwoPlayer';
 import { UsersContext } from '@/contexts/User';
 import { SocketContext } from '@/contexts/Socket';
 import { ThisUserContext } from '@/contexts/ThisUser';
-import { UserStatsContext } from '../contexts/UserStats';
+import { UserStatsContext } from '@/contexts/UserStats';
 
 // const { io } = require('socket.io-client');
 
