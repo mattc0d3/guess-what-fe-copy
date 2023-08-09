@@ -29,7 +29,9 @@ export default function LobbyModal({
   const router = useRouter();
 
   useEffect(() => {
-    socket.emit('find', { name: "test-name", aliens: users.allAliens });
+    console.log(thisUser.name, "<<<<< thisUser.name")
+    if (thisUser.name) {
+    socket.emit('find', { name: thisUser.name, aliens: users.allAliens });
     let tempThisUser = { ...thisUser };
     tempThisUser.name = '';
     setThisUser(tempThisUser);
@@ -47,7 +49,8 @@ export default function LobbyModal({
       obj.allAliens = e.allPlayers[0].allAliens;
       setUsers(obj);
     });
-  }, []);
+  }
+  }, [thisUser, users]);
   useEffect(() => {
     if (users.p1.p1name && users.p2.p2name) {
       setWaitingPlayerTwo(false);
