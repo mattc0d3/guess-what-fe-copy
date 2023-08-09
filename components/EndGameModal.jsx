@@ -21,6 +21,7 @@ export default function EndGameModal({
   const router = useRouter();
 
   function handlePlayAgain(e) {
+
     e.preventDefault();
     setIsLoading(true)
     setIsGameFinished(false);
@@ -79,7 +80,6 @@ export default function EndGameModal({
           ) : null}
         </div>
         <div id="stats-container">
-          {thisUser.name ? <p>{thisUser.name} this user</p> : null}
           <p>Congratulations {statsObject.username}, you win!</p>
           <p>Score {statsObject.score}</p>
           <p>Time</p>
