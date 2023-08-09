@@ -36,13 +36,6 @@ export default function TwoPlayerDisplay() {
 
   useEffect(() => {
     if (!isGameFinished) {
-
-      socket.emit('reset')
-    }
-  }, [isGameFinished])
-
-  useEffect(() => {
-    if (!isGameFinished) {
       getAliens().then((res) => {
         socket.emit('reset', res)
         socket.on("reset", (e) => {
