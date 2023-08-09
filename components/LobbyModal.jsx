@@ -35,9 +35,9 @@ export default function LobbyModal({
     if (thisUser.name) {
       console.log(thisUser.name, "<<<<< thisUser.name in if condition")
     socket.emit('find', { name: thisUser.name, aliens: users.allAliens, test: "test" });
-    let tempThisUser = { ...thisUser };
-    tempThisUser.name = '';
-    setThisUser(tempThisUser);
+    // let tempThisUser = { ...thisUser };
+    // tempThisUser.name = '';
+    // setThisUser(tempThisUser);
     socket.on('your-socketid', (id) => {
       setYourSocket(id);
     });
