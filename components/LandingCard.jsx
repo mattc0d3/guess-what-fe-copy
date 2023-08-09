@@ -94,6 +94,7 @@ export const LandingCard = () => {
           </button>
         </div>
         <button  className='lcbtn'>
+          
           <Link href="/leaderboarddisplay">View Leaderboard</Link>
         </button>
       </form>

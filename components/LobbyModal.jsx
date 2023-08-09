@@ -28,6 +28,8 @@ export default function LobbyModal({
   const { thisUser, setThisUser } = useContext(ThisUserContext);
   const router = useRouter();
 
+  console.log(thisUser, "<<<<< thisUser in lobbymodal")
+
   useEffect(() => {
     console.log(thisUser.name, "<<<<< thisUser.name")
     if (thisUser.name) {
@@ -52,7 +54,7 @@ export default function LobbyModal({
     });
   }
   }, [thisUser, users]);
-  
+
   useEffect(() => {
     if (users.p1.p1name && users.p2.p2name) {
       setWaitingPlayerTwo(false);
