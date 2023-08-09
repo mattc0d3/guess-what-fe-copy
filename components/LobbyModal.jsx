@@ -64,10 +64,6 @@ export default function LobbyModal({
   }, [thisUser, users]);
 
   useEffect(() => {
-    console.log(chosenAlien, '<--- chosen alien');
-  }, [chosenAlien])
-
-  useEffect(() => {
     if (users.p1.p1name && users.p2.p2name) {
       setWaitingPlayerTwo(false);
     }
