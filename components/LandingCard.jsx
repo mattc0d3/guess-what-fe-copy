@@ -19,6 +19,7 @@ export const LandingCard = () => {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(users, "<<<<< users, setting")
     localStorage.setItem('thisUser', JSON.stringify(thisUser))
     localStorage.setItem('users', JSON.stringify(users))
   }, [thisUser, users, yourSocket]
@@ -26,9 +27,12 @@ export const LandingCard = () => {
 
   useEffect(() => {
     getAliens().then((res) => {
+      console.log(res, "<<<<< api res")
       let obj = { ...users };
       obj.allAliens = res;
       setUsers(obj);
+      console.log(users, "<<<<< users, setting")
+      localStorage.setItem('users', JSON.stringify(users))
     });
   }, []);
 

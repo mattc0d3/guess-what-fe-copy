@@ -28,7 +28,13 @@ export default function LobbyModal({
   const { thisUser, setThisUser } = useContext(ThisUserContext);
   const router = useRouter();
 
-  console.log(thisUser, "<<<<< thisUser in lobbymodal")
+  // console.log(thisUser, "<<<<< thisUser in lobbymodal")
+
+  useEffect(() => {
+    // localStorage.setItem('thisUser', JSON.stringify(thisUser))
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [thisUser, users, yourSocket]
+  )
 
   useEffect(() => {
     console.log(thisUser.name, "<<<<< thisUser.name")
@@ -51,6 +57,8 @@ export default function LobbyModal({
       obj.p2.p2alien = e.allPlayers[0].p2.p2alien;
       obj.allAliens = e.allPlayers[0].allAliens;
       setUsers(obj);
+      console.log(users, "<<<<< users, setting")
+      localStorage.setItem('users', JSON.stringify(users))
     });
   }
   }, [thisUser, users]);

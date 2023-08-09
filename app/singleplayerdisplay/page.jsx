@@ -20,7 +20,7 @@ export default function SinglePlayerDisplay() {
   const [hasWon, setHasWon] = useState(null);
   const { thisUser, setThisUser } = useContext(ThisUserContext);
 
-  console.log(thisUser, "<<<<<< this user in single player display")
+  // console.log(thisUser, "<<<<<< this user in single player display")
 
   useEffect(() => {
     if (!isGameFinished) {
