@@ -3,6 +3,7 @@ import { UserStatsContext } from "@/contexts/UserStats";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { OpponentContext } from '@/contexts/OpponentObject';
+import { ThisUserContext } from '@/contexts/ThisUser';
 
 export default function EndGameModal({
   chosenAlien,
@@ -13,6 +14,7 @@ export default function EndGameModal({
   const { opponentObject, setOpponentObject } = useContext(OpponentContext);
   const [clicked, setClicked] = useState(false);
   const { statsObject, setStatsObject } = useContext(UserStatsContext);
+  const { thisUser, setThisUser } = useContext(ThisUserContext);
 
   const winnerAlien = chosenAlien;
 
@@ -77,6 +79,7 @@ export default function EndGameModal({
           ) : null}
         </div>
         <div id="stats-container">
+          {thisUser.name ? <p>{thisUser.name} this user</p> : null}
           <p>Congratulations {statsObject.username}, you win!</p>
           <p>Score {statsObject.score}</p>
           <p>Time</p>
