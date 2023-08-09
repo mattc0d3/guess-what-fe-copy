@@ -8,7 +8,9 @@ import { useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 const { io } = require('socket.io-client');
 
-const socket = io('https://guess-what-api.onrender.com/');
+const socket = io('https://guess-what-copy.onrender.com/');
+
+console.log(socket, "<<<<<< socket")
 
 export default function LobbyModal({
   setIsLoading,
