@@ -17,9 +17,9 @@ import { SocketContext } from '@/contexts/Socket';
 import { ThisUserContext } from '@/contexts/ThisUser';
 import { UserStatsContext } from '@/contexts/UserStats';
 
-const { io } = require('socket.io-client');
+// const { io } = require('socket.io-client');
 
-const socket = io('https://guess-what-copy.onrender.com/');
+// const socket = io('https://guess-what-copy.onrender.com/');
 
 
 export default function TwoPlayerDisplay() {
