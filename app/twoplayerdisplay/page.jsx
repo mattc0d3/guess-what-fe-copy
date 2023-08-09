@@ -29,9 +29,10 @@ export default function TwoPlayerDisplay() {
   const [displayLobby, setDisplayLobby] = useState(true);
   const { users, setUsers } = useContext(UsersContext);
   const { yourSocket, setYourSocket } = useContext(SocketContext);
+  const { thisUser, setThisUser } = useContext(ThisUserContext);
 
   console.log(chosenAlien, '<--- chosen alien');
-
+  console.log(thisUser, "<<<<<< this user in two player display")
   return (
     <main>
       <Header />

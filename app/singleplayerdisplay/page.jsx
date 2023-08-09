@@ -10,6 +10,7 @@ import UserStats from "@/components/UserStats";
 import { useState, useEffect } from "react";
 import { getAliens } from "../utils/getAliens";
 import chooseSecretAlien from "../utils/chooseSecretAlien";
+import { ThisUserContext } from '@/contexts/ThisUser';
 
 export default function SinglePlayerDisplay() {
   const [isGameFinished, setIsGameFinished] = useState(false);
@@ -17,6 +18,9 @@ export default function SinglePlayerDisplay() {
   const [alienObjects, setAlienObjects] = useState([]);
   const [chosenAlien, setChosenAlien] = useState();
   const [hasWon, setHasWon] = useState(null);
+  const { thisUser, setThisUser } = useContext(ThisUserContext);
+
+  console.log(thisUser, "<<<<<< this user in single player display")
 
   useEffect(() => {
     if (!isGameFinished) {
