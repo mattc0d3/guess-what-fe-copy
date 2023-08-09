@@ -31,6 +31,7 @@ export default function LobbyModal({
   useEffect(() => {
     console.log(thisUser.name, "<<<<< thisUser.name")
     if (thisUser.name) {
+      console.log(thisUser.name, "<<<<< thisUser.name in if condition")
     socket.emit('find', { name: thisUser.name, aliens: users.allAliens });
     let tempThisUser = { ...thisUser };
     tempThisUser.name = '';
