@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-  baseURL: 'https://guess-what-api.onrender.com/api',
+  baseURL: 'https://guess-what-copy.onrender.com/api',
 });
 
 export const getAliens = () => {
