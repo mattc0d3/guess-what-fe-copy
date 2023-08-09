@@ -44,8 +44,6 @@ export default function TwoPlayerDisplay() {
     }
   }, []);
 
-
-  // console.log(chosenAlien, '<--- chosen alien');
   // console.log(thisUser, "<<<<<< this user in two player display")
   return (
     <main>
