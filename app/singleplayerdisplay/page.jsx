@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import OpponentCard from "@/components/OpponentCard";
 import QuestionCard from "@/components/QuestionCard";
 import UserStats from "@/components/UserStats";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getAliens } from "../utils/getAliens";
 import chooseSecretAlien from "../utils/chooseSecretAlien";
 import { ThisUserContext } from '@/contexts/ThisUser';
