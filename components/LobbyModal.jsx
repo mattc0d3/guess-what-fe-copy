@@ -29,7 +29,7 @@ export default function LobbyModal({
   const router = useRouter();
 
   useEffect(() => {
-    socket.emit('find', { name: thisUser.name, aliens: users.allAliens });
+    socket.emit('find', { name: "test-name", aliens: users.allAliens });
     let tempThisUser = { ...thisUser };
     tempThisUser.name = '';
     setThisUser(tempThisUser);
