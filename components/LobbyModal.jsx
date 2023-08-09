@@ -33,7 +33,7 @@ export default function LobbyModal({
   useEffect(() => {
     console.log("in local storage set")
     localStorage.setItem('thisUser', JSON.stringify(thisUser))
-  }, [thisUser]
+  }, [thisUser, users, yourSocket, waitingPlayerTwo, setIsLoading, setDisplayLobby]
   )
 
   useEffect(() => {
