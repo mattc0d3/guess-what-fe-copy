@@ -30,11 +30,11 @@ export default function LobbyModal({
 
   // console.log(thisUser, "<<<<< thisUser in lobbymodal")
 
-  useEffect(() => {
-    // localStorage.setItem('thisUser', JSON.stringify(thisUser))
-    localStorage.setItem('users', JSON.stringify(users))
-  }, [thisUser, users, yourSocket]
-  )
+  // useEffect(() => {
+  //   // localStorage.setItem('thisUser', JSON.stringify(thisUser))
+  //   localStorage.setItem('users', JSON.stringify(users))
+  // }, [thisUser, users, yourSocket]
+  // )
 
   useEffect(() => {
     console.log(thisUser.name, "<<<<< thisUser.name")

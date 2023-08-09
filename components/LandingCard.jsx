@@ -19,15 +19,16 @@ export const LandingCard = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(users, "<<<<< users, setting")
     localStorage.setItem('thisUser', JSON.stringify(thisUser))
     // localStorage.setItem('users', JSON.stringify(users))
   }, [thisUser, users, yourSocket]
   )
 
   useEffect(() => {
-    console.log(users, "<<<<< users, setting")
-    localStorage.setItem('users', JSON.stringify(users))
+    if (users.allAliens.length) {
+      console.log(users, "<<<<< users, setting")
+      localStorage.setItem('users', JSON.stringify(users))
+    }
   }, [users])
 
   useEffect(() => {
@@ -36,8 +37,8 @@ export const LandingCard = () => {
       let obj = { ...users };
       obj.allAliens = res;
       setUsers(obj);
-      console.log(users, "<<<<< users, setting")
-      localStorage.setItem('users', JSON.stringify(users))
+      // console.log(users, "<<<<< users, setting")
+      // localStorage.setItem('users', JSON.stringify(users))
     });
   }, []);
 
@@ -83,7 +84,7 @@ export const LandingCard = () => {
               required
             />
           </div>
-          
+
         </div>
 
         <div className="flex gap-4">
@@ -105,8 +106,8 @@ export const LandingCard = () => {
             2 player
           </button>
         </div>
-        <button  className='lcbtn'>
-          
+        <button className='lcbtn'>
+
           <Link href="/leaderboarddisplay">View Leaderboard</Link>
         </button>
       </form>
