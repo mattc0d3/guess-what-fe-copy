@@ -98,6 +98,7 @@ export default function TwoPlayerDisplay() {
             chosenAlien={chosenAlien}
             setIsGameFinished={setIsGameFinished}
             setHasWon={setHasWon}
+            setIsLoading={setIsLoading}
           />
         )}
         <Gameboard
